@@ -308,3 +308,27 @@ async def export_analysis_csv(req: AnalyzeRequest) -> StreamingResponse:
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
 
+
+# ---------------------------------------------------------------------------
+# Serve React Frontend SPA (Single Full-Stack URL Deployment)
+# ---------------------------------------------------------------------------
+from pathlib import Path
+FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+if FRONTEND_DIST.exists():
+    from fastapi.staticfiles import StaticFiles
+    from fastapi.responses import FileResponse
+
+    assets_dir = FRONTEND_DIST / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def serve_spa(full_path: str):
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="Not Found")
+        file_path = FRONTEND_DIST / full_path
+        if file_path.is_file():
+            return FileResponse(file_path)
+        return FileResponse(FRONTEND_DIST / "index.html")
+
+
