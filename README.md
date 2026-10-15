@@ -2,6 +2,12 @@
 
 **Full-Stack Developer Case Study — Dygnify Ventures Pvt Ltd**
 
+[![Live App](https://img.shields.io/badge/Live_App-Render-success?style=for-the-badge&logo=render)](https://climate-hazard-trend-analyzer-997p.onrender.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/mattaparthisathwika-bit/Climate_Hazard_Trend_Analyzer)
+
+- **Live Deployed Application**: [https://climate-hazard-trend-analyzer-997p.onrender.com](https://climate-hazard-trend-analyzer-997p.onrender.com)
+- **Public GitHub Repository**: [https://github.com/mattaparthisathwika-bit/Climate_Hazard_Trend_Analyzer](https://github.com/mattaparthisathwika-bit/Climate_Hazard_Trend_Analyzer)
+
 A full-stack climate intelligence web application that ingests and caches multi-decade historical daily weather data, cleans telemetry anomalies and gaps, detects extreme climate hazards (**Heatwaves**, **Heavy Rainfall**, and **Droughts / Dry Spells**), and visualizes long-term trends using interactive **Chart.js** time-series plots, **Leaflet GIS** spatial mapping, **Ordinary Least Squares (OLS) Linear Regression**, **Rolling Averages**, and the **Mann-Kendall Non-Parametric Trend Test**.
 
 ---
